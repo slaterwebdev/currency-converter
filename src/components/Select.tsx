@@ -3,12 +3,11 @@ import { useSelector } from "react-redux";
 
 const Select = (): ReactElement => {
     interface currencyDataInterface {
-        data: any, 
-        currencyAmount: number, 
-        exchangeFrom: number, 
-        exchangeTo: number
+        data: {
+          data: object
+        }
       }
-    const currencyData = useSelector((state: currencyDataInterface): any => {
+    const currencyData = useSelector((state: currencyDataInterface): {data: object} => {
         return state
       })  
     const [selectVal, setSelectVal] = useState('') ;
