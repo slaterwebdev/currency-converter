@@ -76,7 +76,12 @@ function App() {
     <div className="App">
       {displayContent &&
       <div>
-        <h1 onClick={() => {window.location.reload()}}>CurrentSea Converter</h1>
+        <header>
+          <h1 onClick={() => {window.location.reload()}}>
+            CurrentSea Converter 
+            <img src="/imgs/logo.jpg" alt="Site Logo" />
+          </h1>
+        </header>
       <form onSubmit={formSubmit}>
         <InputWrapper>
           <ExchangeFrom />
