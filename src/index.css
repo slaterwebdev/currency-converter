@@ -1,0 +1,90 @@
+/*General Styles*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: lato;
+}
+
+.App{
+  text-align: center;
+  height: 100vh;
+  background: url('../public/imgs/background.jpeg') no-repeat center;
+  background-size: cover;
+}
+
+/*Header*/
+h1 {
+  padding: 20px;
+  margin-bottom: 70px;
+  cursor: pointer;
+}
+/*----------*/
+
+/*Form*/
+.form-component-wrapper div,
+input, 
+select,
+button,
+label {
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+select,
+button,
+h1 {
+  background-color: #2C4E72;
+  color: white;
+  border: 1px solid #2C4E72;
+}
+
+.form-component-wrapper div{
+  border: 1px solid black;
+  margin: 10px auto;
+  width: 315px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.form-component-wrapper input {
+  border: 0px;
+  height: 100%;
+  text-align: center;
+}
+
+.form-component-wrapper select {
+  padding: 10px 0px 10px 10px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: white;
+  color: #2C4E72;
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all .2s ease-in-out;
+}
+/*---------*/
+
+
+/*Regex fail message*/
+.regex-fail-message {
+  color: red;
+} 
+/*----------*/
+
+/*data-fetch-error*/
+.data-fetch-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
