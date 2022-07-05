@@ -10,7 +10,6 @@ function App() {
   //Setting up UI display failsafe variables for conditional rendering incase data does not fetch
   const [displayContent, setDisplayContent] = useState<boolean | object>(false);
   const [dataError, setDataError] = useState<boolean>(false)
-  const [currencyCode, setCurrencyCode] = useState('gbp');
 
   //Setting up redux store dispatch variable
   const dispatch = useDispatch();
@@ -31,7 +30,7 @@ function App() {
       setDataError(true)
       setDisplayContent(false)
     })
-  },[currencyCode])
+  },[])
 
   //Variable for conditional rendering of error message
   const [regexPatternFail, setRegexPatternFail] = useState<null | boolean>(null);
