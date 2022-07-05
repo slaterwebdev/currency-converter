@@ -10,26 +10,28 @@ function App() {
   //Setting up UI display failsafe variables for conditional rendering incase data does not fetch
   const [displayContent, setDisplayContent] = useState<boolean | object>(false);
   const [dataError, setDataError] = useState<boolean>(false)
+  const [currencyCode, setCurrencyCode] = useState('gbp');
 
   //Setting up redux store dispatch variable
   const dispatch = useDispatch();
 
   //Async function fires on initial rendering and retrieves api data
+  const request = async (url: string) => {
+    const fetchData = await fetch(url);
+    const res = await fetchData.json();
+    dispatch(displayData(res))
+  }
+
   useEffect(() => {
     setDataError(false)
     setDisplayContent(true)
-    const request = async (url: string) => {
-      const fetchData = await fetch(url);
-      const res = await fetchData.json();
-      dispatch(displayData(res))
-    }
-    request('http://www.floatrates.com/daily/gbp.json')
+    request(`http://www.floatrates.com/daily/gbp.json`)
     .catch((err) => {
       console.log(err)
       setDataError(true)
       setDisplayContent(false)
     })
-  },[])
+  },[currencyCode])
 
   //Variable for conditional rendering of error message
   const [regexPatternFail, setRegexPatternFail] = useState<null | boolean>(null);
@@ -56,14 +58,17 @@ function App() {
       || currencyRegexThree.test(currencyAmountInput)) {
         setRegexPatternFail(null)
         setRegexTextDetected(null)
+        //sendind data to redux store if regex test passes
         dispatch(currencyAmount(currencyAmountInput))
         dispatch(exchangeFrom(currencyExchangeFrom))
         dispatch(exchangeTo(currencyExchangeTo))
       } else if (textRegexPattern.test(currencyAmountInput)){
+        //Validation - Error message
         setRegexPatternFail(null)
         setRegexTextDetected(true)
       }
       else {
+        //Validation - Error message
         setRegexTextDetected(null)
         setRegexPatternFail(true)
       }    
@@ -79,7 +84,7 @@ function App() {
         <header>
           <h1 onClick={() => {window.location.reload()}}>
             CurrentSea Converter 
-            <img src="/imgs/logo.jpg" alt="Site Logo" />
+            <img src="./imgs/logo.jpg" alt="Site Logo" />
           </h1>
         </header>
       <form onSubmit={formSubmit}>

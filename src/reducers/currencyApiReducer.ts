@@ -1,7 +1,13 @@
-const dataReducer = (state = null, action: {type: string, payload: object}) : object | null => { 
+interface reducer {
+  type: string, 
+  payload: object
+}
+
+//reducer for api fetched data
+const dataReducer = (state:object = {}, action: reducer) :object => { 
     switch(action.type) {
       case 'displayData':
-        return action.payload
+        return state = action.payload
       default:
         return state
     }

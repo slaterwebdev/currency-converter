@@ -1,7 +1,12 @@
-const currencyAmountReducer = (state = null, action: {type: string, payload: number}) : number | null => { 
+interface reducer {
+  type: string, 
+  payload: number
+}
+//Reducer for user inputted value for currency from input field
+const currencyAmountReducer = (state = 0, action: reducer) : number => { 
     switch(action.type) {
       case 'currencyAmount':
-        return action.payload
+        return state = action.payload
       default:
         return state
     }

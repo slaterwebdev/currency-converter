@@ -1,11 +1,11 @@
 import { ReactElement } from "react";
 
 //Reuasable button component
-interface Prop {
+interface prop {
     btnText: string
 }
 
-const Button = ({ btnText }: Prop): ReactElement => {
+const Button = ({ btnText }: prop): ReactElement => {
     return (
         <button>{btnText}</button>
     );

@@ -1,7 +1,12 @@
-const exchangeToReducer = (state:null = null, action: {type: string, payload: object}) : object | null => { 
+interface reducer {
+  type: string, 
+  payload: object
+}
+//reducer for second select field value 
+const exchangeToReducer = (state:object = {}, action: reducer) :object => { 
     switch(action.type) {
       case 'exchangeTo':
-        return action.payload
+        return state = action.payload
       default:
         return state
     }

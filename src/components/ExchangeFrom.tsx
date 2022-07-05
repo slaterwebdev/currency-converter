@@ -2,8 +2,8 @@ import { ReactElement, useState } from "react";
 import Select from "./Select";
 
 const ExchangeFrom = (): ReactElement => {
-  //storing input field value in state to pass back in the respective fields value prop which can then be picked in the submit event and sent to the redux store
-  const [inputVal, setInputVal] = useState('') ;
+  //storing input field value in state to pass back in to variable and then redux store in form submit event 
+  const [inputVal, setInputVal] = useState<string>('') ;
 
 return (
     <div>
