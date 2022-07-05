@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     setDataError(false)
     setDisplayContent(true)
-    request(`http://www.floatrates.com/daily/gbp.json`)
+    request(`http://www.floatrates.com/daily/aed.json`)
     .catch((err) => {
       console.log(err)
       setDataError(true)
